@@ -16,7 +16,6 @@ class Car(Serviceable):
         self.last_service_date = last_service_date
         self.engine, self.battery = engine, battery
 
-    @abstractmethod
     def needs_service(self):
         return self.engine.needs_service() | self.battery.needs_service()
 
