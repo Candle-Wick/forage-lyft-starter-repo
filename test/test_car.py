@@ -4,7 +4,23 @@ from datetime import datetime
 from carFactory import CarFactory
 from batteries import *
 from engines import *
+from tires import *
 
+class TestOctoprime(unittest.TestCase):
+    def no_service(self):
+        tires = OctoprimeTyre([0,0,0,0])
+        self.assertFalse(tires.needs_service())
+    def service(self):
+        tires = OctoprimeTyre([5,2,3,2])
+        self.assertTrue(tires.needs_service())
+
+class TestCarrigan(unittest.TestCase):
+    def no_service(self):
+        tires = OctoprimeTyre([0.8,0,0,0])
+        self.assertFalse(tires.needs_service())
+    def service(self):
+        tires = OctoprimeTyre([0.9,0,0,0])
+        self.assertTrue(tires.needs_service())
 
 class TestCalliope(unittest.TestCase):
     def test_battery_should_be_serviced(self):
